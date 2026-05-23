@@ -2,7 +2,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import pickle
 
-# 1. Menyiapkan Data Latihan (Contoh kasus kecil)
+# 1. Menyiapkan Data Latihan (Contoh kasus)
 pesan_latihan = [
     "Saya HRD perusahaan, ingin menawarkan proyek IT",
     "Tolong buatkan website dan perbaiki jaringan kami",
@@ -22,7 +22,7 @@ pesan_angka = vectorizer.fit_transform(pesan_latihan)
 ai_model = MultinomialNB()
 ai_model.fit(pesan_angka, label_latihan)
 
-# 4. Menyimpan "Otak" AI yang sudah pintar ini ke dalam file permanen
+# 4. Menyimpan "Otak" AI yang sudah pintar ke dalam file permanen
 with open('vektor_kata.pkl', 'wb') as f:
     pickle.dump(vectorizer, f)
 with open('model_ai.pkl', 'wb') as f:
