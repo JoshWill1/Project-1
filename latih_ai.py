@@ -14,7 +14,7 @@ pesan_latihan = [
 # Kunci Jawabannya:
 label_latihan = ["Penting", "Penting", "Spam", "Spam", "Biasa", "Biasa"]
 
-# 2. Mengubah teks menjadi angka (karena komputer tidak paham huruf)
+# 2. Mengubah teks menjadi angka 
 vectorizer = CountVectorizer()
 pesan_angka = vectorizer.fit_transform(pesan_latihan)
 
