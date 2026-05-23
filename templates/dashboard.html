@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dasbor Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Tambahan gaya tabel agar rapi */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #0366d6; color: white; }
+    </style>
+</head>
+<body style="background-color: #e9ecef; flex-direction: column; height: auto; padding: 50px;">
+    
+    <div class="kartu-profil" style="max-width: 800px; text-align: left; width: 100%;">
+        <h2 style="color: #0366d6;">Dasbor Admin - {{ username }}</h2>
+        <a href="/logout" class="tombol" style="background-color: #dc3545; padding: 5px 10px; margin-top: 0;">Logout</a>
+        <hr>
+
+        <h3>Tambah Proyek Portofolio</h3>
+        <form method="POST" action="/tambah_proyek" style="background: #f9f9f9; padding: 15px; border-radius: 5px;">
+            <p style="margin: 5px 0;">Judul Proyek:</p>
+            <input type="text" name="judul" required style="width: 95%; padding: 8px; margin-bottom: 10px;">
+            
+            <p style="margin: 5px 0;">Deskripsi:</p>
+            <textarea name="deskripsi" required style="width: 95%; padding: 8px; margin-bottom: 10px; height: 60px;"></textarea>
+            <br>
+            <button type="submit" class="tombol" style="border: none; background-color: #28a745; cursor: pointer;">Simpan Proyek</button>
+        </form>
+
+        <h3 style="margin-top: 30px;">Daftar Proyek Saya</h3>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Judul Proyek</th>
+                <th>Deskripsi</th>
+                <th>Aksi</th>
+            </tr>
+            {% for proyek in daftar_proyek %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ proyek.judul }}</td>
+                <td>{{ proyek.deskripsi }}</td>
+                <td>
+                    <a href="/hapus_proyek/{{ proyek.id }}" style="color: red; text-decoration: none; font-weight: bold;">Hapus</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center;">Belum ada proyek yang ditambahkan.</td>
+            </tr>
+            {% endfor %}
+        </table>
+            <h3 style="margin-top: 40px;">Kotak Masuk (Di-filter oleh AI)</h3>
+        <table>
+            <tr>
+                <th>Pengirim</th>
+                <th>Isi Pesan</th>
+                <th>Kategori AI</th>
+                <th>Aksi</th> </tr>
+            </tr>
+            {% for pesan in daftar_pesan %}
+            <tr>
+                <td>{{ pesan.nama_pengirim }}</td>
+                <td>{{ pesan.isi_pesan }}</td>
+                <td>
+                    {% if pesan.label_ai == 'Spam' %}
+                        <span style="color: red; font-weight: bold;">[SPAM]</span>
+                    {% elif pesan.label_ai == 'Penting' %}
+                        <span style="color: green; font-weight: bold;">[PENTING]</span>
+                    {% else %}
+                        <span style="color: gray; font-weight: bold;">[BIASA]</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/hapus_pesan/{{ pesan.id }}" style="color: red; text-decoration: none; font-weight: bold;">Hapus</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center;">Belum ada pesan masuk.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

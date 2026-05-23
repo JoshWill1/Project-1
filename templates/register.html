@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Akun Baru</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="flex-direction: column;">
+    
+    <div class="kartu-profil">
+        <h2>Buat Akun Baru</h2>
+        
+        <form method="POST" action="/register">
+            <p>Username:</p>
+            <input type="text" name="username" required style="padding: 10px; width: 80%;">
+            
+            <p>Password:</p>
+            <input type="password" name="password" required style="padding: 10px; width: 80%;">
+            
+            <button type="submit" class="tombol" style="border: none; cursor: pointer;">Daftar Sekarang</button>
+        </form>
+    </div>
+
+</body>
+</html>

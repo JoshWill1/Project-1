@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Portofolio IT</title>
+    <!-- Baris di bawah ini berfungsi memanggil file pewarna (CSS) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="kartu-profil">
+        <h1>Halo, Saya Mahasiswa IT, Nama saya Joshua William</h1>
+        <h2>Fokus pada Jaringan & Database, saat ini sedang berkuliah di Binus Online</h2>
+        <p>Saya adalah mahasisiwa yang antusias mempelajari infrastruktur teknologi, manajemen basis data relasional, dan penyelesaian masalah teknis secara logis.</p>
+        <a href="https://github.com/JoshWill1/Cek" class="tombol">Lihat GitHub Saya</a>
+        <br> <a href="https://drive.google.com/drive/folders/1cIgyq_r2ZLEQ6j6TXvfWS85YdscYDwAz?usp=drive_link" class="tombol">Transkrip Nilai Saya</a>
+        <hr style="margin-top: 30px;">
+        <h3>Tinggalkan Pesan</h3>
+        <form method="POST" action="/kirim_pesan" style="text-align: left;">
+            <p style="margin: 5px 0;">Nama:</p>
+            <input type="text" name="nama" required style="width: 90%; padding: 8px;">
+            <p style="margin: 5px 0;">Pesan:</p>
+            <textarea name="pesan" required style="width: 90%; padding: 8px; height: 50px;"></textarea>
+            <br><br>
+            <button type="submit" class="tombol" style="border:none; cursor:pointer;">Kirim Pesan</button>
+        </form>
+    </div>
+</body>
+</html>

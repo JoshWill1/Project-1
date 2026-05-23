@@ -1,0 +1,33 @@
+/* Mengatur kanvas latar belakang layar */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Mengatur kotak profil agar putih, memiliki bayangan, dan berada di tengah */
+.kartu-profil {
+    background-color: burlywood;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+}
+
+/* Mengubah tampilan teks tautan menjadi tombol dan memaksanya tersusun atas-bawah */
+.tombol {
+    display: block;         /* Memaksa tombol turun ke baris baru */
+    width: fit-content;     /* Lebar tombol menyesuaikan panjang teksnya saja */
+    margin: 15px auto;      /* Memberi jarak 15px atas-bawah, posisinya di tengah (auto) */
+    padding: 10px 20px;
+    background-color: #0366d6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
