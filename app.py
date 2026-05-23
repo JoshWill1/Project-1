@@ -56,7 +56,7 @@ def kirim_pesan():
     nama = request.form['nama']
     pesan = request.form['pesan']
     
-    # [PELACAK 1] Kita suruh terminal mencetak ini jika tombol di web benar-benar ditekan
+    # [PELACAK 1] 
     print(f"\n[INFO] Menerima pesan dari: {nama}")
     
     # 1. AI Membaca dan Menebak Pesan
@@ -64,10 +64,10 @@ def kirim_pesan():
     tebakan_ai = ai_model.predict(pesan_angka)[0] 
     
     # 2. PENERJEMAH (SANGAT PENTING)
-    # Kita paksa dialek Numpy dari AI menjadi teks Python standar menggunakan str()
+    # paksa dialek Numpy dari AI menjadi teks Python standar menggunakan str()
     kategori_final = str(tebakan_ai)
     
-    # [PELACAK 2] Kita suruh terminal mencetak hasil tebakan AI
+    # [PELACAK 2]
     print(f"[INFO] AI melabeli pesan ini sebagai: {kategori_final}\n")
     
     # 3. Simpan pesan beserta tebakan AI ke database
@@ -132,7 +132,7 @@ def dashboard():
     
     return redirect(url_for('login'))
 
-# CREATE: Rute rahasia untuk menambahkan proyek baru
+
 @app.route('/tambah_proyek', methods=['POST'])
 def tambah_proyek():
     if 'username' in session:
@@ -145,7 +145,7 @@ def tambah_proyek():
         conn.close()
     return redirect(url_for('dashboard'))
 
-# DELETE: Rute rahasia untuk menghapus proyek berdasarkan ID-nya
+# DELETE: Rute untuk menghapus proyek berdasarkan ID-nya
 @app.route('/hapus_proyek/<int:id_proyek>')
 def hapus_proyek(id_proyek):
     if 'username' in session:
